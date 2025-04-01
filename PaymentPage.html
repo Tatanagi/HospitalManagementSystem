@@ -11,32 +11,38 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh; 
-        } .header {
+        }
+        .header {
             background: #080394;
             width: 100%;
-			text-indent: 30px;
+            text-indent: 30px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             padding: 10px 0;
-        } h1 {
+        }
+        h1 {
             color: white;
             font-size: 35px;
             margin: 0;
-        } h2 {
-			font-size: 30px;
-			text-indent: 60px;
-			margin-top: 85px;
-		} .content {
+        }
+        h2 {
+            font-size: 30px;
+            text-indent: 60px;
+            margin-top: 85px;
+        }
+        .content {
             flex: 1; 
             text-align: center;
             padding: 150px 20px 20px;
-        } p { 
+        }
+        p { 
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto;
-        } .footer {
+        }
+        .footer {
             background: #080394;
             width: 100%;
             position: fixed;
@@ -45,7 +51,8 @@
             right: 0;
             text-align: center;
             padding: 50px 0;
-        } .my-button {
+        }
+        .my-button {
             background-color: #0b03d0;
             color: white;
             padding: 20px 120px;
@@ -54,33 +61,67 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
-        } .my-button:hover {
+        }
+        .my-button:hover {
             background-color: #030060;
             color: white;
         }
     </style>
+    <script>
+        function showPaymentFields() {
+            let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+            let paymentDetails = document.getElementById("payment-details");
+            paymentDetails.innerHTML = "";
+            if (!selectedMethod) return;
+            
+            if (selectedMethod.value === "credit-card") {
+                paymentDetails.innerHTML = `
+                    <label>Card Number:</label>
+                    <input type="text" name="card-number" required><br>
+                    <label>Expiration Date:</label>
+                    <input type="text" name="expiration-date" required><br>
+                    <label>CVV:</label>
+                    <input type="text" name="cvv" required><br>
+                `;
+            } else if (selectedMethod.value === "paypal") {
+                paymentDetails.innerHTML = `
+                    <label>PayPal Email:</label>
+                    <input type="email" name="paypal-email" required><br>
+                `;
+            } else if (selectedMethod.value === "bank-transfer") {
+                paymentDetails.innerHTML = `
+                    <label>Bank Account Number:</label>
+                    <input type="text" name="bank-account" required><br>
+                    <label>Bank Name:</label>
+                    <input type="text" name="bank-name" required><br>
+                `;
+            }
+        }
+    </script>
 </head>
 <body>
-
     <header class="header">
         <h1>Hanami Hospital</h1>
     </header>
-		<h2> Payment </h2>
-
     <div class="content">
-        <p>
-            aaa
-        </p>
+        <p>Please select your payment method:</p>
+        <form action="PaymentPage.html" method="post">
+            <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
+            <label for="credit-card">Credit Card</label><br>
+            <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
+            <label for="paypal">PayPal</label><br>
+            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
+            <label for="bank-transfer">Bank Transfer</label><br>
+            <div id="payment-details"></div>
+        </form>
     </div>
-	
     <footer class="footer">
-	<a href="InformationPage.html">
-        <button class="my-button"> Back </button>
-	</a>
-	<a href="ClarificationPage.html">
-        <button class="my-button"> Next </button>
-	</a>
+        <a href="InformationPage.html">
+            <button class="my-button">Back</button>
+        </a>
+        <a href="ClarificationPage.html">
+            <button class="my-button">Next</button>
+        </a>
     </footer>
-
 </body>
 </html>
