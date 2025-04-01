@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanami Hospital</title>
+    <title>Hanami Hospital - Payment</title>
     <style> 
         body {
             margin: 0;
@@ -105,7 +105,7 @@
     </header>
     <div class="content">
         <p>Please select your payment method:</p>
-        <form action="PaymentPage.html" method="post">
+        <form action="ClarificationPage.html" method="post" onsubmit="return validateForm();">
             <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
             <label for="credit-card">Credit Card</label><br>
             <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
@@ -113,14 +113,13 @@
             <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
             <label for="bank-transfer">Bank Transfer</label><br>
             <div id="payment-details"></div>
+            <br>
+            <button type="submit" class="my-button">Proceed</button>
         </form>
     </div>
     <footer class="footer">
         <a href="InformationPage.html">
             <button class="my-button">Back</button>
-        </a>
-        <a href="ClarificationPage.html">
-            <button class="my-button">Next</button>
         </a>
     </footer>
 </body>
