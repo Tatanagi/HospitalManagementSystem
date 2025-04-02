@@ -1,32 +1,33 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Css/ClarificatinPage.css">
-    <title>Hanami Hospital</title>
+    <title>Hanami Hospital - Clarification</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let params = new URLSearchParams(window.location.search);
+            let paymentDetails = "";
+            params.forEach((value, key) => {
+                paymentDetails += `<p><strong>${key.replace("-", " ")}:</strong> ${value}</p>`;
+            });
+            document.getElementById("selected-method").innerHTML = paymentDetails || "No payment method selected.";
+        });
+    </script>
 </head>
 <body>
-	<div class="background">
-	</div>
+    <div class="background"></div>
     <header class="header">
         <h1>Hanami Hospital</h1>
     </header>
-		<h2> Clarification </h2>
-
+    <h2>Clarification</h2>
     <div class="content">
-        <p>
-            aaa
-        </p>
+        <div id="selected-method">Loading...</div>
     </div>
-	
     <footer class="footer">
-	<a href="PaymentPage.html">
-        <button class="my-button"> Back </button>
-	</a>
-	<a href="End.html">
-        <button class="my-button"> Next </button>
-	</a>
+        <a href="PaymentPage.html"><button class="my-button">Back</button></a>
+        <a href="End.html"><button class="my-button">Next</button></a>
     </footer>
 </body>
 </html>

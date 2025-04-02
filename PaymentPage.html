@@ -7,6 +7,39 @@
     <script src="Scripts/Payment.js"></script>
     <title>Hanami Hospital - Payment</title>   
 </head>
+<title>Hanami Hospital - Payment</title>
+       <script>
+        function showPaymentFields() {
+            let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+            let paymentDetails = document.getElementById("payment-details");
+            paymentDetails.innerHTML = "";
+            if (!selectedMethod) return;
+            
+            if (selectedMethod.value === "credit-card") {
+                paymentDetails.innerHTML = `
+                    <label>Card Number:</label>
+                    <input type="text" name="card-number" required><br>
+                    <label>Expiration Date:</label>
+                    <input type="text" name="expiration-date" required><br>
+                    <label>CVV:</label>
+                    <input type="text" name="cvv" required><br>
+                `;
+            } else if (selectedMethod.value === "paypal") {
+                paymentDetails.innerHTML = `
+                    <label>PayPal Email:</label>
+                    <input type="email" name="paypal-email" required><br>
+                `;
+            } else if (selectedMethod.value === "bank-transfer") {
+                paymentDetails.innerHTML = `
+                    <label>Bank Account Number:</label>
+                    <input type="text" name="bank-account" required><br>
+                    <label>Bank Name:</label>
+                    <input type="text" name="bank-name" required><br>
+                `;
+            }
+        }
+    </script>
+</head>
 <body>
 	<div class="background">
 	</div>
@@ -15,17 +48,35 @@
     </header>
     <div class="content">
         <p>Please select your payment method:</p>
-        <form action="ClarificationPage.html" method="post" onsubmit="return validateForm();">
+        <form action="ClarificationPage.html" method="get" onsubmit="return passPaymentMethod();">
             <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
             <label for="credit-card">Credit Card</label><br>
+            
             <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
             <label for="paypal">PayPal</label><br>
+            
             <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
             <label for="bank-transfer">Bank Transfer</label><br>
+            
             <div id="payment-details"></div>
             <br>
             <button type="submit" class="my-button">Proceed</button>
         </form>
+        <script>
+        function passPaymentMethod() {
+            let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+            if (!selectedMethod) {
+                alert("Please select a payment method.");
+                return false;
+            }
+            // Redirect with selected payment method as a URL parameter
+            let selectedValue = selectedMethod.value;
+            let form = document.querySelector("form");
+            form.action = "ClarificationPage.html?payment-method=" + encodeURIComponent(selectedValue);
+    
+            return true;
+        }
+        </script>
     </div>
     <footer class="footer">
         <a href="InformationPage.html">
