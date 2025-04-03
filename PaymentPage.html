@@ -66,6 +66,9 @@
             <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
             <label for="bank-transfer">Bank Transfer</label><br>
             
+            <input type="radio" id="cash" name="payment-method" value="cash" onclick="showPaymentFields()">
+            <label for="cash">Cash</label><br>
+
             <div id="payment-details"></div>
             
             <footer class="footer">
@@ -105,6 +108,7 @@
                 `;
             }
         }
+        
         function passPaymentMethod() {
             let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
             if (!selectedMethod) {
