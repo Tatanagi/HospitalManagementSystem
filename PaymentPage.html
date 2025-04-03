@@ -7,8 +7,75 @@
     <script src="Scripts/Payment.js"></script>
     <title>Hanami Hospital - Payment</title>   
 </head>
-<title>Hanami Hospital - Payment</title>
-       <script>
+<body>
+    <div class="background"></div>
+    <header class="header">
+        <h1>Hanami Hospital</h1>
+    </header>
+    <div class="content">
+        <p>Please fill in your details:</p>
+        <form action="ClarificationPage.html" method="get" onsubmit="return passPaymentMethod();">
+            <label>First Name:</label>
+            <input type="text" name="first-name" required><br>
+            
+            <label>Last Name:</label>
+            <input type="text" name="last-name" required><br>
+            
+            <label>Email Address:</label>
+            <input type="email" name="email" required><br>
+            
+            <label>Contact Number:</label>
+            <input type="text" name="contact-number" required><br>
+            
+            <label>Address:</label>
+            <input type="text" name="address" required><br>
+            
+            <label>Emergency Contact Name:</label>
+            <input type="text" name="emergency-contact-name" required><br>
+            
+            <label>Emergency Contact Phone:</label>
+            <input type="text" name="emergency-contact-phone" required><br>
+            
+            <label>Blood Type:</label>
+            <input type="text" name="blood-type" required><br>
+            
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+            
+            <label>Birthdate:</label>
+            <input type="date" name="birthdate" required><br>
+
+            <!-- New fields -->
+            <label>Disease:</label>
+            <input type="text" name="disease" required><br>
+
+            <label>Date of Reservation:</label>
+            <input type="date" name="reservation-date" required><br>
+            
+            <p>Please select your payment method:</p>
+            <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
+            <label for="credit-card">Credit Card</label><br>
+            
+            <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
+            <label for="paypal">PayPal</label><br>
+            
+            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
+            <label for="bank-transfer">Bank Transfer</label><br>
+            
+            <div id="payment-details"></div>
+            
+            <footer class="footer">
+                <a href="MainPage.html">
+                    <button type="button" class="my-button">Back</button>
+                </a>
+                <button type="submit" class="my-button">Proceed</button>
+            </footer>
+        </form>
+        <script>
         function showPaymentFields() {
             let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
             let paymentDetails = document.getElementById("payment-details");
@@ -38,50 +105,18 @@
                 `;
             }
         }
-    </script>
-</head>
-<body>
-	<div class="background">
-	</div>
-    <header class="header">
-        <h1>Hanami Hospital</h1>
-    </header>
-    <div class="content">
-        <p>Please select your payment method:</p>
-        <form action="ClarificationPage.html" method="get" onsubmit="return passPaymentMethod();">
-            <input type="radio" id="credit-card" name="payment-method" value="credit-card" onclick="showPaymentFields()">
-            <label for="credit-card">Credit Card</label><br>
-            
-            <input type="radio" id="paypal" name="payment-method" value="paypal" onclick="showPaymentFields()">
-            <label for="paypal">PayPal</label><br>
-            
-            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" onclick="showPaymentFields()">
-            <label for="bank-transfer">Bank Transfer</label><br>
-            
-            <div id="payment-details"></div>
-            <br>
-            <button type="submit" class="my-button">Proceed</button>
-        </form>
-        <script>
         function passPaymentMethod() {
             let selectedMethod = document.querySelector('input[name="payment-method"]:checked');
             if (!selectedMethod) {
                 alert("Please select a payment method.");
                 return false;
             }
-            // Redirect with selected payment method as a URL parameter
             let selectedValue = selectedMethod.value;
             let form = document.querySelector("form");
             form.action = "ClarificationPage.html?payment-method=" + encodeURIComponent(selectedValue);
-    
             return true;
         }
         </script>
     </div>
-    <footer class="footer">
-        <a href="InformationPage.html">
-            <button class="my-button">Back</button>
-        </a>
-    </footer>
 </body>
 </html>
