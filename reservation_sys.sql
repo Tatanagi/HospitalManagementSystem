@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2025 at 01:42 PM
+-- Generation Time: Apr 03, 2025 at 12:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,59 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointments`
+-- Table structure for table `apt_info`
 --
 
-CREATE TABLE `appointments` (
-  `Appointment_id` int(11) NOT NULL,
-  `Patient_id` int(11) DEFAULT NULL,
-  `Apt_date` datetime NOT NULL,
-  `Apt_reason` varchar(255) DEFAULT NULL,
-  `Provider_id` int(11) DEFAULT NULL,
-  `Notes` text DEFAULT NULL,
-  `Created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `Updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `patients_info`
---
-
-CREATE TABLE `patients_info` (
-  `Patient_id` int(11) NOT NULL,
-  `FName` varchar(64) NOT NULL,
-  `LName` varchar(64) NOT NULL,
-  `Birthdate` date NOT NULL,
-  `Gender` char(1) DEFAULT NULL CHECK (`Gender` in ('M','F','O')),
-  `Phone` varchar(15) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL CHECK (`Email` like '%@%.%'),
+CREATE TABLE `apt_info` (
+  `Apt_id` int(11) NOT NULL,
+  `Fname` varchar(64) NOT NULL,
+  `Lname` varchar(64) NOT NULL,
+  `Email` varchar(128) NOT NULL,
+  `Contact_num` int(15) NOT NULL,
   `Address` varchar(255) NOT NULL,
-  `Emergency_Contact_Name` varchar(128) DEFAULT NULL,
-  `Emergency_Contact_Phone` varchar(15) DEFAULT NULL,
-  `Blood_Type` varchar(3) DEFAULT NULL CHECK (`Blood_Type` in ('A+','A-','B+','B-','AB+','AB-','O+','O-'))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `staff_info`
---
-
-CREATE TABLE `staff_info` (
-  `staff_id` int(11) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `position` varchar(100) NOT NULL,
-  `specialization` varchar(100) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `hire_date` date NOT NULL,
-  `department` varchar(50) NOT NULL,
-  `license_number` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `Emergency_fullname` varchar(128) NOT NULL,
+  `Emergency_num` int(15) NOT NULL,
+  `Btype` varchar(3) NOT NULL CHECK (`Btype` in ('A+','A-','B+','B-','AB+','AB-','O+','O-')),
+  `Gender` char(1) NOT NULL CHECK (`Gender` in ('M','F','O')),
+  `Birthdate` date NOT NULL,
+  `Med_condition` text NOT NULL,
+  `Reservation` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -84,52 +48,20 @@ CREATE TABLE `staff_info` (
 --
 
 --
--- Indexes for table `appointments`
+-- Indexes for table `apt_info`
 --
-ALTER TABLE `appointments`
-  ADD PRIMARY KEY (`Appointment_id`),
-  ADD KEY `Patient_id` (`Patient_id`),
-  ADD KEY `Provider_id` (`Provider_id`);
-
---
--- Indexes for table `patients_info`
---
-ALTER TABLE `patients_info`
-  ADD PRIMARY KEY (`Patient_id`);
-
---
--- Indexes for table `staff_info`
---
-ALTER TABLE `staff_info`
-  ADD PRIMARY KEY (`staff_id`),
-  ADD UNIQUE KEY `email` (`email`);
+ALTER TABLE `apt_info`
+  ADD PRIMARY KEY (`Apt_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `patients_info`
+-- AUTO_INCREMENT for table `apt_info`
 --
-ALTER TABLE `patients_info`
-  MODIFY `Patient_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `staff_info`
---
-ALTER TABLE `staff_info`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `appointments`
---
-ALTER TABLE `appointments`
-  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patients_info` (`Patient_id`),
-  ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`Provider_id`) REFERENCES `staff_info` (`staff_id`);
+ALTER TABLE `apt_info`
+  MODIFY `Apt_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
