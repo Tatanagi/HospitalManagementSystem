@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Admin Page - Hanami Hospital</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./Css/Admin.css">
 </head>
@@ -16,9 +16,8 @@
 
     <div class="content">
         <h2 class="text-center mb-4">Admin Page</h2>
-        
+
         <?php
-        // Display success or error messages if present
         if (isset($_GET['message'])) {
             echo "<div class='alert alert-success'>" . htmlspecialchars($_GET['message']) . "</div>";
         }
@@ -29,7 +28,7 @@
 
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
-                <thead>
+                <thead class="table-primary">
                     <tr>
                         <th>Id</th>
                         <th>First Name</th>
