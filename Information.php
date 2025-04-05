@@ -91,7 +91,7 @@
         <input type="email" name="Email" required>
 
         <label>Contact Number:</label>
-        <input type="text" name="Contact_num" required>
+        <input type="text" name="Contact_num" required pattern="\d{11}" maxlength="11" title="Please enter exactly 11 digits">
 
         <label>Address:</label>
         <input type="text" name="Address" required>
@@ -100,7 +100,7 @@
         <input type="text" name="Emergency_fullname" required>
 
         <label>Emergency Contact Number:</label>
-        <input type="text" name="Emergency_num" required>
+        <input type="text" name="Emergency_num" required pattern="\d{11}" maxlength="11" title="Please enter exactly 11 digits">
 
         <label>Blood Type:</label>
         <select name="Btype" required>
