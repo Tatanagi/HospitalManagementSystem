@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital List</title>
+    <title>Admin Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -121,7 +121,7 @@
     </header>
 
     <div class="content">
-        <h2 class="text-center mb-4">List of All Hospitals</h2>
+        <h2 class="text-center mb-4">Admin Page</h2>
         
         <?php
         // Display success or error messages if present
@@ -158,12 +158,8 @@
                 </thead>
                 <tbody>
                 <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $databasename = "reservation_sys";
-                    
-                    $connection = mysqli_connect($servername, $username, $password, $databasename);
+                    include 'config.php';
+                    $connection = mysqli_connect($servername, $username, $password, $dbname);
 
                     if (!$connection) {
                         die("Connection failed: " . mysqli_connect_error());

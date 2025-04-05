@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hanami Hospital - Payment</title>
+    <title>Hanami Hospital - Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -71,7 +71,7 @@
 <body>
 
 <div class="header">
-    <h1>Hanami Hospital - Payment</h1>
+    <h1>Hanami Hospital - Information</h1>
 </div>
 
 <div class="form-container">
@@ -79,7 +79,8 @@
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $conn = new mysqli("localhost", "root", "", "reservation_sys");
+        include 'config.php';
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
