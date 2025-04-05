@@ -5,113 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        } 
-        .header {
-            background: #080394;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2;
-        }
-        .header h1 {
-            color: white;
-            font-size: 35px;
-            margin-left: 20px;
-        }
-        .admin-button {
-            background-color: #f39c12;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            margin-right: 20px;
-        }
-        .admin-button:hover {
-            background-color: #e67e22;
-        }
-        .footer {
-            background: #080394;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 50px 0;
-            z-index: 2;
-        }
-        .my-button {
-            background-color: #0b03d0;
-            color: white;
-            padding: 20px 250px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .my-button:hover {
-            background-color: #030060;
-        }  
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://t3.ftcdn.net/jpg/08/78/37/14/360_F_878371475_wdGVuAwwG7pjOFmOURDaEB7Q2wXKB2IM.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: -1;
-        } 
-        .background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.5);
-        }
-        .content {
-            flex: 1;
-            padding: 150px 20px 100px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        a {
-            margin-right: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="./Css/Admin.css">
 </head>
 <body>
     <div class="background"></div>
@@ -205,7 +99,7 @@
     </div>
 
     <footer class="footer">
-        <a href="MainPage.php">
+        <a href="Index.php">
             <button class="my-button">Back</button>
         </a>
     </footer>

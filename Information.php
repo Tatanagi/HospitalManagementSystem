@@ -4,102 +4,13 @@
     <meta charset="UTF-8">
     <title>Hanami Hospital - Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .header {
-            background: #080394;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-        .header a {
-            color: white;
-            text-decoration: none;
-        }
-        .header a:hover {
-            text-decoration: underline;
-        }
-        .form-container {
-            max-width: 800px;
-            margin: auto;
-            padding: 50px 20px;
-        }
-        form label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-        form input, form select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .payment-options label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .payment-options input[type="radio"] {
-            margin: 0;
-            width: 16px;
-            height: 16px;
-        }
-        .btn-container {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .btn-container button {
-            padding: 10px 30px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #080394;
-            color: white;
-            cursor: pointer;
-        }
-        .btn-container button:hover {
-            background-color: #030060;
-        }
-        .submitted-data {
-            background-color: #f0f0f0;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-        }  
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7972.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: -1;
-        } 
-        .background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.5);
-        }
-    </style>
+    <script src="./Scripts/Information.js"></script>
+    <link rel="stylesheet" href="./Css/Information.css">
 </head>
 <body>
     <div class="background"></div>
 <div class="header">
-    <h1><a href="Mainpage.php">Hanami Hospital - Information</a></h1>
+    <h1><a href="Index.php">Hanami Hospital - Information</a></h1>
 </div>
 
 <div class="form-container">
@@ -235,46 +146,5 @@
         </div>
     </form>
 </div>
-
-<script>
-function showPaymentFields() {
-    const container = document.getElementById('payment-details');
-    container.innerHTML = '';
-    const method = document.querySelector('input[name="payment-method"]:checked').value;
-    switch (method) {
-        case 'credit-card':
-            container.innerHTML = `
-                <label>Card Number:</label>
-                <input type="text" name="card_number" required>
-                <label>Card Holder Name:</label>
-                <input type="text" name="card_holder" required>
-                <label>Expiry Date:</label>
-                <input type="month" name="expiry_date" required>
-                <label>CVV:</label>
-                <input type="text" name="cvv" required>
-            `;
-            break;
-        case 'paypal':
-            container.innerHTML = `
-                <label>PayPal Email:</label>
-                <input type="email" name="paypal_email" required>
-            `;
-            break;
-        case 'bank-transfer':
-            container.innerHTML = `
-                <label>Bank Name:</label>
-                <input type="text" name="bank_name" required>
-                <label>Account Number:</label>
-                <input type="text" name="account_number" required>
-                <label>Routing Number:</label>
-                <input type="text" name="routing_number" required>
-            `;
-            break;
-        case 'cash':
-            container.innerHTML = `<p>Payment will be made by cash upon arrival.</p>`;
-            break;
-    }
-}
-</script>
 </body>
 </html>
