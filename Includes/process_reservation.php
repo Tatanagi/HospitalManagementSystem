@@ -1,9 +1,5 @@
 <?php
-// Database configuration
-$servername = "localhost";
-$username = "root"; // Replace with your MySQL username
-$password = ""; // Replace with your MySQL password
-$dbname = "reservation_sys";
+include 'config.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -61,7 +57,7 @@ switch ($payment_method) {
         ]);
         break;
     case 'cash':
-        default:
+    default:
         $payment_details = json_encode(['method' => 'cash']);
         break;
 }

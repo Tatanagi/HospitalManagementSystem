@@ -1,10 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$databasename = "reservation_sys";
-
-$connection = mysqli_connect($servername, $username, $password, $databasename);
+include 'config.php';
+$connection = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
