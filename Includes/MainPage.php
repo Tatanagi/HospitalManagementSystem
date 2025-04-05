@@ -53,7 +53,7 @@
             padding: 150px 20px 20px;
         }
         p { 
-            font-size: 20px;
+            font-size: 55px;
             max-width: 800px;
             margin: 0 auto;
         }
