@@ -88,16 +88,17 @@ form input, form select {
     background: rgba(255, 255, 255, 0.5);
 	}
         .my-button {
-			display: flex;
-            justify-content: center;
-            background-color: #0b03d0;
-            color: white;
-            padding: 20px 100px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+    display: block;
+    margin: 30px auto 0 auto;
+    background-color: #0b03d0;
+    color: white;
+    padding: 20px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
         }
         .my-button:hover {
             background-color: #030060;
