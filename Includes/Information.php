@@ -16,6 +16,13 @@
             text-align: center;
             padding: 10px 0;
         }
+        .header a {
+            color: white;
+            text-decoration: none;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
         .form-container {
             max-width: 800px;
             margin: auto;
@@ -71,7 +78,7 @@
 <body>
 
 <div class="header">
-    <h1>Hanami Hospital - Information</h1>
+    <h1><a href="Mainpage.php">Hanami Hospital - Information</a></h1>
 </div>
 
 <div class="form-container">
