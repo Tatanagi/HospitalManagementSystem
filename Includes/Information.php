@@ -72,11 +72,32 @@
             padding: 20px;
             margin-top: 20px;
             border-radius: 10px;
+        }  
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7972.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+        } 
+        .background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
-
+    <div class="background"></div>
 <div class="header">
     <h1><a href="Mainpage.php">Hanami Hospital - Information</a></h1>
 </div>

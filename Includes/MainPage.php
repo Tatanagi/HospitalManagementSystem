@@ -115,9 +115,12 @@
 
     <div class="content">
         <p>
-            Website description blablabalbalbalbalbalbalablablabalbalablalbalbalbalba
-            lbalablablabalbalablalbalbalbalbalbalablablabalbalablalbalbalbalbalbalabla
-            blabalbalablalbalbalbalbalbalablablabalbalabla
+            Welcome to Hanami Hospital!
+			This website is designed to make managing your medical appointments 
+			much more easier and more convenient. Whether you need to book a new 
+			appointment, reschedule, or cancel an existing one, our system is here to help, 
+			ensuring a smoother experience for everyone. 
+			Reserve now by pressing the button below.
         </p>
     </div>
 

@@ -76,7 +76,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://st3.depositphotos.com/2712843/14504/i/450/depositphotos_145046321-stock-photo-blurred-hospital-background.jpg');
+            background-image: url('https://t3.ftcdn.net/jpg/08/78/37/14/360_F_878371475_wdGVuAwwG7pjOFmOURDaEB7Q2wXKB2IM.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
